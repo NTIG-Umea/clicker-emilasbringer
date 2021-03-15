@@ -5,7 +5,7 @@ Bananinsamling åt en intergalaktisk apa. Fyll en raket med bananer och skjut up
 
 <h2>Färger</h2>  Gul
 
-<h2>Typsnitt</h2>  Evo 2
+<h2>Typsnitt</h2>  Exo 2
 
 <h2>Uppgraderingar</h2>  
 
