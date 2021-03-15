@@ -8,48 +8,59 @@
   <title>Något är fel på internet</title>
 </head>
 <body class="d-flex h-100 flex-column">
-  <main class="container">
+  <body::after></body::after>
     <div class="row justify-center">
       <a href="https://xkcd.com/386">
-        <img src="https://imgs.xkcd.com/comics/duty_calls.png " alt="Källa: https://xkcd.com/386/">
+        <img src="img/newmonke640x834.jpg" alt="Källa: https://xkcd.com/386/" width="400px">
       </a>
     </div>
+    <uppermain>
     <div class="row">
-      <p>Något är fel på nätet, det är dags att ta saken i egna händer och göra någonting åt detta.</p>
-      <p>Räddningen finns såklart genom sociala medier!</p>
+      <p>En intergalaktisk apa håller jorden fånge och han hotar att spränga jorden om han inte får bananer!</p>
+      <p>Fyll raketen med bananer och skjut upp den för att mata apan. Uppgradera din raket och din bananproduktion med Apmättnad!</p>
     </div>
+  </uppermain>
+  <main>
+  <mainleft class="container">
     <div class='row'>
       <div class="column justify-center align-center">
+
         <div class="w-100">
-          <h1>Din förmögenhet: <span id="money"></span> likes</h1>
+          <h1>Mängd Bananer: <span id="money"></span> Bananer</h1>
         </div>
         <div class="w-100">
-          <h1>Likes per sekund: <span id="mps"></span></h1>
+          <h1>Bananer per sekund: <span id="mps"></span></h1>
         </div>
         <div class="w-100">
-          <h1>Antal följare: <span id="followers"></span></h1>
+          <h1>Apans Mättnad: <span id="followers"> Mättnad</span></h1>
         </div>
         <div class="w-100">
-          <h1>Följare</h1>
+          <h1>Upgraderingar</h1>
           <div id="upgradelist"></div>
         </div>
       </div>
-      <div class="column justify-center align-center">
+
+      <div class="bananknapp">
         <div>
           <button id="click">Tjäna</button>
         </div>
       </div>
+      <div class="raketknapp">
+        <div>
+          <button id="click">Avfyra Raket</button>
+        </div>
+      </div>
+
     </div>
     <div class='row'>
       <div id="msgbox"></div>
     </div>
-  </main>
-  <footer>
-    <div class="container d-flex justify-between">
-      <p>Bild från <a href="https://xkcd.com">XKCD</a>.</p>
-      <p>Kod från <a href="https://github.com/jensnti">Jens</a>.</p>  
-    </div>
-  </footer>
+  </mainleft>
+
+  <mainright>
+    <div class="rocket"><img src="/img/rocket.png" width="100px"></div>
+  </mainright>
+</main>
   <script src="javascripts/clicker.js"></script>
 </body>
 </html>

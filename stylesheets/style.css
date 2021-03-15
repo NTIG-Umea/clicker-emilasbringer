@@ -1,4 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+
 /* elements */
+body {
+  font-family: 'Exo 2', sans-serif; 
+  height: 3000px; 
+}
+
+body::after {
+  content: "";
+  background: url("/img/space.jpg");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; 
+  height: 250%;
+}
+
+uppermain {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    text-align: center;
+}
+
+main {
+  display: flex;
+}
+
 img {
   max-width: 100%;
 }
@@ -23,6 +54,12 @@ footer {
 #msgbox > p {
   margin-bottom: .1rem;
   padding: .5rem;
+}
+
+.rocket {
+  position: absolute;
+  top: 1000px;
+  right: 50px;
 }
 
 .warning {
@@ -92,15 +129,20 @@ footer {
   flex-basis: 100%;
   flex: 1;
   padding-top: 2rem;
+  max-width: 35vw;
 }
 
 .container {
   width: 100%;
-  margin-left: auto;
+  margin-left: 5%;
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
   margin-top: 8rem;
+}
+
+.raketknapp {
+  margin-left: 10px;
 }
 
 @media (min-width: 576px) {

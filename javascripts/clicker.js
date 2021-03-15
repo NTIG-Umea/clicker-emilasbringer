@@ -14,13 +14,7 @@ const followerTracker = document.querySelector('#followers');
 const upgradeList = document.querySelector('#upgradelist')
 const msgbox = document.querySelector('#msgbox')
 
-/* Följande variabler använder vi för att hålla reda på hur mycket pengar som
- * spelaren, har och tjänar.
- * last används för att hålla koll på tiden.
- * För dessa variabler kan vi inte använda const, eftersom vi tilldelar dem nya
- * värden, utan då använder vi let.
- * Läs mer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
- */
+
 let money = 0;
 let moneyPerClick = 1;
 let moneyPerSecond = 0;
@@ -91,19 +85,34 @@ window.addEventListener('load', (event) => {
  */
 upgrades = [
   {
-    name: 'Arg gubbe',
+    name: 'Sydamerikansk Bananbonde',
     cost: 10,
     amount: 1
   },
   {
-    name: 'Internettroll',
-    cost: 100,
-    amount: 10
+    name: 'Bananplantation',
+    cost: 1000,
+    amount: 150
   },
   {
-    name: 'Twitterbot',
-    cost: 1000,
-    amount: 100
+    name: 'Bananfabrik',
+    cost: 20000,
+    amount: 3000
+  },
+  {
+    name: 'Bananrepublik',
+    cost: 500000,
+    amount: 40000
+  },
+  {
+    name: 'Bananjorden',
+    cost: 1000000000,
+    amount: 300000
+  },
+  {
+    name: 'Underjordisk Vätekatalysator - Terraformering av mars',
+    cost: 100000000000,
+    amount: 0
   }
 ]
 
@@ -132,8 +141,8 @@ function createCard(upgrade) {
   header.classList.add('title');
   const cost = document.createElement('p');
 
-  header.textContent = upgrade.name + ', +' + upgrade.amount + ' likes per sekund.';
-  cost.textContent = 'Köp för ' + upgrade.cost + ' likes';
+  header.textContent = upgrade.name + ', +' + upgrade.amount + ' bananer per sekund.';
+  cost.textContent = 'Köp för ' + upgrade.cost + ' Ap-mättnad';
 
   card.addEventListener('click', (e) => {
     if (money >= upgrade.cost) {
@@ -141,9 +150,9 @@ function createCard(upgrade) {
       moneyPerClick++;
       money -= upgrade.cost;
       upgrade.cost *= 1.5;
-      cost.textContent = 'Köp för ' + upgrade.cost + ' likes';
+      cost.textContent = 'Köp för ' + upgrade.cost + ' mättnad';
       moneyPerSecond += upgrade.amount;
-      message('Grattis du har en ny följare!', 'success');
+      message('Upgradering lyckades!', 'success');
     } else {
       message('Du har inte råd.', 'warning');
     }
