@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="stylesheets/style.css">
   <title>Intergalactic ape</title>
+  <link rel="icon" href="/img/1f435.png">
 </head>
 <body class="d-flex h-100 flex-column">
   <body::after></body::after>
@@ -15,15 +16,15 @@
       </a>
     </div>
     <uppermain>
-    <div class="row">
+    <div class="textrow">
       <p>En intergalaktisk apa håller jorden fånge och han hotar att spränga jorden om han inte får bananer!</p>
       <p>Fyll raketen med bananer och skjut upp den för att mata apan. Uppgradera din raket och din bananproduktion med Apmättnad!</p>
     </div>
   </uppermain>
   <main>
-  <mainleft class="container">
-    <div class='row'>
-      <div class="column justify-center align-center">
+  <mainleft>
+    <div class='containerrow'>
+      <div class="column">
 
         <div class="w-100">
           <h1>Mängd Bananer: <span id="money"></span> 🍌Bananer</h1>
@@ -37,28 +38,40 @@
         <div class="w-100">
           <h1>Apans Mättnad: <span id="monkey"></span> 🦍Mättnad</h1>
         </div>
-        <div class="w-100">
+      
+      <listofupgrades>
+        <div class="list">
           <h1>Upgraderingar</h1>
           <div id="upgradelist"></div>
         </div>
-        
-      </div>
+        <div class="list">
+          <h1>Raketupgraderingar</h1>
+           <div id="rocketupgradelist"></div>
+         </div>
+        </listofupgrades>  
 
+      </div>
+      
+
+      
+        
+        
+      
+    </div>
+
+    <knappar>
       <div class="bananknapp">
         <div>
-          <button id="click">Väx Banan</button>
+          <button id="click">🍌</button>
         </div>
       </div>
       <div class="raketknapp">
         <div>
-          <button id="rocketclick">Avfyra Raket</button>
+          <button id="rocketclick">🚀</button>
         </div>
       </div>
-      <div class="rocketlist">
-        <h1>Raketupgraderingar</h1>
-        <div id="rocketupgradelist"></div>
-      </div>
-    </div>
+    </knappar>
+
     <div class='row'>
       <div id="msgbox"></div>
     </div>

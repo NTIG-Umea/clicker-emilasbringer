@@ -1,12 +1,3 @@
-/* Med document.queryselector(selector) kan vi hämta
-* de element som vi behöver från html dokumentet.
-* Vi spearar elementen i const variabler då vi inte kommer att
-* ändra dess värden.
-* Läs mer: 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
-* https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
-* Viktigt: queryselector ger oss ett html element eller flera om det finns.
-*/
 const clickerButton = document.querySelector('#click');
 const rocketButton = document.querySelector('#rocketclick');
 const moneyTracker = document.querySelector('#money');
@@ -14,6 +5,7 @@ const mpsTracker = document.querySelector('#mps');
 const bpcTracker = document.querySelector('#bpc');
 const monkeyTracker = document.querySelector('#monkey');
 const upgradeList = document.querySelector('#upgradelist')
+const rocketupgradeList = document.querySelector('#rocketupgradelist');
 const msgbox = document.querySelector('#msgbox')
 const rocketelement = document.querySelector('#rocket')
 
@@ -105,20 +97,17 @@ function step(timestamp) {
  * Efter det så kallas requestAnimationFrame och spelet är igång.
  */
 window.addEventListener('load', (event) => {
-  console.log('page is fully loaded');
-  upgrades.forEach(upgrade => {
-    upgradeList.appendChild(createCard(upgrade));
-  });
-  window.requestAnimationFrame(step);
+    console.log('page is fully loaded');
+    upgrades.forEach(upgrade => {
+      upgradeList.appendChild(createCard(upgrade));
+    });
+    rocketupgrades.forEach(rocketupgrade => {
+      rocketupgradeList.appendChild(createrocketCard(rocketupgrade));
+    });
+    window.requestAnimationFrame(step);
 });
 
-/* En array med upgrades. Varje upgrade är ett objekt med egenskaperna name, cost
- * och amount. Önskar du ytterligare text eller en bild så går det utmärkt att 
- * lägga till detta.
- * Läs mer:
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer
- */
+
 upgrades = [
   {
     name: 'Sydamerikansk Bananbonde',
@@ -152,6 +141,33 @@ upgrades = [
   }
 ]
 
+rocketupgrades = [
+  {
+    name: 'SnigelRaket',
+    cost: 100,
+    speed: 10,
+    auto: false
+  },
+  {
+    name: 'RåttaRaket',
+    cost: 10000,
+    speed: 5,
+    auto: false
+  },
+  {
+    name: 'UberUltraKorvSingoMingoRaket',
+    cost: 100000,
+    speed: 1,
+    auto: true
+  },
+  {
+    name: 'LjusetsHastighet-Raket',
+    cost: 1000000,
+    speed: 0.1,
+    auto: true
+  }
+]
+
 /* createCard är en funktion som tar ett upgrade objekt som parameter och skapar
  * ett html kort för det.
  * För att skapa nya html element så används document.createElement(), elementen
@@ -178,16 +194,19 @@ function createCard(upgrade) {
   const cost = document.createElement('p');
 
   header.textContent = upgrade.name + ', +' + upgrade.amount + ' bananer per sekund.';
-  cost.textContent = 'Köp för ' + upgrade.cost + ' Ap-mättnad';
+  cost.textContent = 'Köp för ' + Math.round(upgrade.cost) + ' Ap-mättnad';
 
   card.addEventListener('click', () => {
+    console.log("card" + card.name + " was clicked");
     if (monkeySaturation >= upgrade.cost) {
       moneyPerClick++;
       monkeySaturation -= upgrade.cost;
       upgrade.cost *= 1.5;
-      cost.textContent = 'Köp för ' + upgrade.cost + ' mättnad';
+      cost.textContent = 'Köp för ' + upgrade.cost + ' Ap-mättnad';
       moneyPerSecond += upgrade.amount;
+      console.log("upgrade complete " + upgrade.name);
       message('Upgradering lyckades!', 'success');
+      console.log("sucsess");
     } else {
       message('Du har inte råd.', 'warning');
     }
@@ -196,6 +215,29 @@ function createCard(upgrade) {
   card.appendChild(header);
   card.appendChild(cost);
   return card;
+}
+
+function createrocketCard(rocketupgrade) {
+  const rocketcard = document.createElement('div');
+  rocketcard.classList.add('card');
+  const rocketheader = document.createElement('p');
+  rocketheader.classList.add('title');
+  const rocketcost = document.createElement('p');
+
+  rocketheader.textContent = rocketupgrade.name + ', +' + rocketupgrade.speed + ' bananer per sekund.';
+  rocketcost.textContent = 'Köp för ' + Math.round(rocketupgrade.cost) + ' Ap-mättnad';
+
+  rocketcard.addEventListener('click', () => {
+    if (monkeySaturation >= rocketupgrade.cost) {
+      message('Upgradering lyckades!', 'success');
+    } else {
+      message('Du har inte råd.', 'warning');
+    }
+  });
+
+  rocketcard.appendChild(rocketheader);
+  rocketcard.appendChild(rocketcost);
+  return rocketcard;
 }
 
 /* Message visar hur vi kan skapa ett html element och ta bort det.

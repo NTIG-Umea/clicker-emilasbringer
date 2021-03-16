@@ -8,6 +8,7 @@ body {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
+  margin: 0px;
 }
 
 body::after {
@@ -24,13 +25,32 @@ body::after {
 }
 
 uppermain {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 500px;
+    width: 100%;
+    min-height: 150px;
     text-align: center;
 }
 
 main {
+  display: flex;
+}
+
+mainleft {
+  width: 50%;
+  margin-left: 5%;
+  margin-top: 8rem;
+  display: flex;
+  min-width: 1010px;
+}
+
+mainright {
+  position: relative;
+  min-width: 200px;
+  height: 600px;
+}
+
+listofupgrades {
+  min-width: 1010px;
+  max-height: 700px;
   display: flex;
 }
 
@@ -41,6 +61,12 @@ img {
 footer {
   margin-top: auto;
   padding: 2rem 0;
+}
+
+knappar {
+  max-height: 260px;
+  width: 260px;
+  display: flex;
 }
 
 /* clicker */
@@ -66,18 +92,15 @@ footer {
   padding: .5rem;
 }
 
-#rocketupgradelist {
-  display: flex;
-}
 
 .rocket {
   position: absolute;
-  top: 1000px;
-  right: 50px;
+  bottom: 0px;
 }
 
-.rocketlist {
-  display: flex;
+.list {
+ max-width: 500px;
+ margin-right: 5px;
 }
 .warning {
   background-color: palevioletred;
@@ -95,6 +118,7 @@ footer {
   margin: .5rem 0;
   padding: .5rem;
   background: whitesmoke;
+  min-height: 70px;
 }
 
 .card:hover {
@@ -116,6 +140,7 @@ footer {
 
 .w-100 {
   width: 100%;
+  min-width: 440px;
 }
 
 .d-flex {
@@ -128,6 +153,7 @@ footer {
 
 .justify-center {
   justify-content: center;
+  margin: auto;
 }
 
 .justify-between {
@@ -138,11 +164,20 @@ footer {
   align-items: center;
 }
 
-.row {
+.textrow {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin: auto;
   width: 100%;
+  min-width: 615px;
+  max-width: 750px;
+  
+}
+
+.containerrow {
+  max-width: 500px;
+  
 }
 
 .column {
@@ -154,19 +189,13 @@ footer {
   max-width: 35vw;
 }
 
-.container {
-  width: 100%;
-  margin-left: 5%;
-  margin-right: 39%;
-  margin-top: 8rem;
-}
-
 .raketknapp {
-  margin-left: 10px;
   height: 130px;
+  display: flex;
 }
 
 .bananknapp {
+  display: flex;
   height: 130px;
 }
 
@@ -185,19 +214,12 @@ footer {
     max-width: 960px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
   .container {
-    max-width: 1140px;
-  }
-}
-@media (max-width: 540px) {
-  .row {
-    flex-direction: column-reverse;
+    min-width: 1000px;
   }
 }
 
 @keyframes rocketlaunch { 
-  0% {top: 1000px; right: 50px;}
-  50% {top: 300px; right: 500px; transform: rotate(-45deg);}
-  100% {top: 200px; right: 1000px; transform: rotate(-90deg)}
+  100% {bottom: 1250px; right: 900px;}
 }
