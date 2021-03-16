@@ -25,6 +25,7 @@ let monkeySaturation = 0;
 let last = 0;
 let rocketammount = 0;
 let rocket = false;
+let rocketanimationspeed = 1;
 
 /* Med ett valt element, som knappen i detta fall så kan vi skapa listeners
  * med addEventListener så kan vi lyssna på ett specifikt event på ett html-element
@@ -56,7 +57,7 @@ rocketButton.addEventListener('click', () => {
     setTimeout(() => {
       rocket = false;
     monkeySaturation += rocketammount;
-    }, 2000);
+    }, rocketanimationspeed * 1000);
     
   } 
 }, false)
