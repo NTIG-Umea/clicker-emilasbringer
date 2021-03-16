@@ -66,12 +66,19 @@ footer {
   padding: .5rem;
 }
 
+#rocketupgradelist {
+  display: flex;
+}
+
 .rocket {
   position: absolute;
   top: 1000px;
   right: 50px;
 }
 
+.rocketlist {
+  display: flex;
+}
 .warning {
   background-color: palevioletred;
 }
@@ -150,14 +157,17 @@ footer {
 .container {
   width: 100%;
   margin-left: 5%;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  margin-right: 39%;
   margin-top: 8rem;
 }
 
 .raketknapp {
   margin-left: 10px;
+  height: 130px;
+}
+
+.bananknapp {
+  height: 130px;
 }
 
 @media (min-width: 576px) {

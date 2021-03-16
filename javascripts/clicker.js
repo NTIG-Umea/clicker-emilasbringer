@@ -73,10 +73,18 @@ rocketButton.addEventListener('click', () => {
  * Sist i funktionen så kallar den på sig själv igen för att fortsätta uppdatera.
  */
 function step(timestamp) {
-  moneyTracker.textContent = Math.round(money);
   mpsTracker.textContent = moneyPerSecond;
   bpcTracker.textContent = moneyPerClick;
+  moneyTracker.textContent = Math.round(money);
   monkeyTracker.textContent = Math.round(monkeySaturation);
+
+  if (money >= 1000000) {
+    moneyTracker.textContent = ((money/1000000).toPrecision(4)) + " Miljoner";
+  }
+
+  if (monkeySaturation >= 1000000) {
+    monkeyTracker.textContent = ((monkeySaturation/1000000).toPrecision(4)) + " Miljoner";
+  }
 
   if (timestamp >= last + 1000) {
     money += moneyPerSecond;
