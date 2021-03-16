@@ -8,17 +8,23 @@
 * Viktigt: queryselector ger oss ett html element eller flera om det finns.
 */
 const clickerButton = document.querySelector('#click');
+const rocketButton = document.querySelector('#rocketclick');
 const moneyTracker = document.querySelector('#money');
 const mpsTracker = document.querySelector('#mps');
-const followerTracker = document.querySelector('#followers');
+const bpcTracker = document.querySelector('#bpc');
+const monkeyTracker = document.querySelector('#monkey');
 const upgradeList = document.querySelector('#upgradelist')
 const msgbox = document.querySelector('#msgbox')
+const rocketelement = document.querySelector('#rocket')
 
 
 let money = 0;
 let moneyPerClick = 1;
 let moneyPerSecond = 0;
+let monkeySaturation = 0;
 let last = 0;
+let rocketammount = 0;
+let rocket = false;
 
 /* Med ett valt element, som knappen i detta fall så kan vi skapa listeners
  * med addEventListener så kan vi lyssna på ett specifikt event på ett html-element
@@ -31,10 +37,30 @@ let last = 0;
  * Läs mer: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 clickerButton.addEventListener('click', () => {
-  // vid click öka score med 1
   money += moneyPerClick;
   // console.log(clicker.score);
 }, false);
+
+rocketButton.addEventListener('click', () => {
+  console.log("rocketb clicked")
+  if (rocket == false) {
+    console.log("rocketaway!")
+    rocket = true;
+    rocketammount = money;
+    money = 0;
+
+    rocketelement.classList.remove('rocketlaunchanimation'); // reset animation
+    void rocketelement.offsetWidth; // trigger reflow
+    rocketelement.classList.add('rocketlaunchanimation'); // start animation  
+    console.log("playingrocketanimations")
+    setTimeout(() => {
+      rocket = false;
+    monkeySaturation += rocketammount;
+    }, 2000);
+    
+  } 
+}, false)
+
 
 /* För att driva klicker spelet så kommer vi att använda oss av en metod som heter
  * requestAnimationFrame.
@@ -48,7 +74,8 @@ clickerButton.addEventListener('click', () => {
 function step(timestamp) {
   moneyTracker.textContent = Math.round(money);
   mpsTracker.textContent = moneyPerSecond;
-  followerTracker.textContent = moneyPerClick;
+  bpcTracker.textContent = moneyPerClick;
+  monkeyTracker.textContent = Math.round(monkeySaturation);
 
   if (timestamp >= last + 1000) {
     money += moneyPerSecond;
@@ -144,11 +171,10 @@ function createCard(upgrade) {
   header.textContent = upgrade.name + ', +' + upgrade.amount + ' bananer per sekund.';
   cost.textContent = 'Köp för ' + upgrade.cost + ' Ap-mättnad';
 
-  card.addEventListener('click', (e) => {
-    if (money >= upgrade.cost) {
-      followers++;
+  card.addEventListener('click', () => {
+    if (monkeySaturation >= upgrade.cost) {
       moneyPerClick++;
-      money -= upgrade.cost;
+      monkeySaturation -= upgrade.cost;
       upgrade.cost *= 1.5;
       cost.textContent = 'Köp för ' + upgrade.cost + ' mättnad';
       moneyPerSecond += upgrade.amount;
@@ -178,4 +204,8 @@ function message(text, type) {
   setTimeout(() => {
     p.parentNode.removeChild(p);
   }, 2000);
+
+
+
+
 }
