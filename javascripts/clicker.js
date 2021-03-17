@@ -229,6 +229,8 @@ function createrocketCard(rocketupgrade) {
 
   rocketcard.addEventListener('click', () => {
     if (monkeySaturation >= rocketupgrade.cost) {
+      rocketanimationspeed = rocketupgrades.speed;
+      console.log(rocketanimationspeed);
       message('Upgradering lyckades!', 'success');
     } else {
       message('Du har inte råd.', 'warning');
