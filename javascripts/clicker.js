@@ -193,7 +193,7 @@ function createCard(upgrade) {
   header.classList.add('title');
   const cost = document.createElement('p');
 
-  header.textContent = upgrade.name + ', +' + upgrade.amount + ' bananer per sekund.';
+  header.textContent = upgrade.name + ', +' + upgrade.amount + ' BPS.';
   cost.textContent = 'Köp för ' + Math.round(upgrade.cost) + ' Ap-mättnad';
 
   card.addEventListener('click', () => {
