@@ -13,7 +13,7 @@ body {
 
 body::after {
   content: "";
-  background: url("img/space.jpg");
+  background: url("/img/space.jpg");
   opacity: 0.3;
   top: 0;
   left: 0;
