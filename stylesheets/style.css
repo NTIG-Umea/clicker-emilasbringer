@@ -114,10 +114,12 @@ knappar {
   
 }
 
-.rocket {
-  margin: auto;
-  height: 20%;
-  
+
+
+.rocketimg {
+  width: 5%;
+  position: absolute;
+  left: 47%;
 }
 
 .list {
@@ -175,7 +177,6 @@ knappar {
 }
 
 .bigape {
-  max-width: 50%;
   margin: auto;
   
 }
@@ -184,6 +185,8 @@ knappar {
   margin-top: -31px;
   width: 100%;
   background: rgba(0, 0, 0, 0.123);
+  color: rgb(66, 245, 66);
+
 }
 
 /* helpers */
@@ -276,5 +279,6 @@ knappar {
 }
 
 @keyframes rocketlaunch { 
-  100% {bottom: 1250px; right: 900px;}
+  from   {left: 47%; top: 60%;}
+  to {left: 50%; top: 30%; width: 1%; }
 }

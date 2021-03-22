@@ -21,23 +21,28 @@ let monkeySaturation = 0;
 let last = 0;
 let rocketammount = 0;
 let rocket = false;
-let rocketanimationspeed = 1;
+let rocketanimationspeed = 12.5;
+let autofly = false;
 
 
-
+rocketelement.style.animationDuration = "12.5s";
 
 rocketUpgradeButton.addEventListener('click', () => {
-  if (showmoneyupgrade) {
+  if (!showmoneyupgrade) {
     upgradeButton.textContent = '🍌⏫'; 
-    showmoneyupgrade = false;
+    showmoneyupgrade = true;
     rocketupgradelistelement.style.display = "none";
     moneyupgradelistelement.style.display = "block";
+    
+    
   } 
   else {
     upgradeButton.textContent = '🚀⏫'
-    showmoneyupgrade = true 
+    showmoneyupgrade = false 
     moneyupgradelistelement.style.display = "none";
     rocketupgradelistelement.style.display = "block";
+    
+    
   }
   
 }, false)
@@ -92,10 +97,12 @@ function step(timestamp) {
     monkeyTracker.textContent = ((monkeySaturation/1000000).toPrecision(4)) + " Miljoner";
   }
 
+
   if (timestamp >= last + 1000) {
     money += moneyPerSecond;
     last = timestamp;
   }
+
   window.requestAnimationFrame(step);
 }
 
@@ -145,37 +152,37 @@ upgrades = [
   },
   {
     name: 'Bananjorden',
-    cost: 1000000000,
+    cost: 10000000,
     amount: 300000
   },
   {
     name: 'Underjordisk Vätekatalysator - Terraformering av mars',
-    cost: 100000000000,
+    cost: 1000000000,
     amount: 0
   }
 ]
 
 rocketupgrades = [
   {
-    name: 'SnigelRaket',
+    name: 'Mentosraket',
     cost: 100,
-    speed: 10,
+    speed: 8,
     auto: false
   },
   {
-    name: 'RåttaRaket',
+    name: '"Big boy" fyrverkeriraket',
     cost: 10000,
     speed: 5,
     auto: false
   },
   {
-    name: 'UberUltraKorvSingoMingoRaket',
+    name: 'Falcon 9',
     cost: 100000,
     speed: 1,
     auto: true
   },
   {
-    name: 'LjusetsHastighet-Raket',
+    name: 'Starship',
     cost: 1000000,
     speed: 0.1,
     auto: true
@@ -213,6 +220,9 @@ function createCard(upgrade) {
 
   header.textContent = upgrade.name + ', +' + upgrade.amount + ' BPS.';
   cost.textContent = 'Köp för ' + Math.round(upgrade.cost) + ' Ap-mättnad';
+  if (upgrade.cost > 1000000) {
+    cost.textContent = 'Köp för ' + Math.round(upgrade.cost/1000000) + " miljoner" + ' Ap-mättnad';
+  }
 
   card.addEventListener('click', () => {
     console.log("card" + card.name + " was clicked");
@@ -220,7 +230,10 @@ function createCard(upgrade) {
       moneyPerClick++;
       monkeySaturation -= upgrade.cost;
       upgrade.cost *= 1.5;
-      cost.textContent = 'Köp för ' + upgrade.cost + ' Ap-mättnad';
+      cost.textContent = 'Köp för ' + Math.round(upgrade.cost) + ' Ap-mättnad';
+      if (upgrade.cost > 1000000) {
+        cost.textContent = 'Köp för ' + Math.round(upgrade.cost/1000000) + " miljoner" + ' Ap-mättnad';
+      }
       moneyPerSecond += upgrade.amount;
       card.style.background = "rgb(66, 245, 66)";
       setTimeout(() => {
@@ -247,13 +260,16 @@ function createrocketCard(rocketupgrade) {
   rocketheader.classList.add('title');
   const rocketcost = document.createElement('p');
 
-  rocketheader.textContent = rocketupgrade.name + ', +' + rocketupgrade.speed + ' bananer per sekund.';
+  rocketheader.textContent = rocketupgrade.name + ', ' + rocketupgrade.speed + ' sekunder flygtid';
   rocketcost.textContent = 'Köp för ' + Math.round(rocketupgrade.cost) + ' Ap-mättnad';
+ 
 
   rocketcard.addEventListener('click', () => {
     if (monkeySaturation >= rocketupgrade.cost) {
-      rocketanimationspeed = rocketupgrades.speed;
-      console.log(rocketanimationspeed);
+      rocketanimationspeed = rocketupgrade.speed;
+      monkeySaturation -= rocketupgrade.cost;
+      console.log("The rocket is flying at " + rocketanimationspeed + " seconds per cycle");
+      rocketelement.style.animationDuration = rocketanimationspeed + 's';
       rocketcard.style.background = "rgb(66, 245, 66)";
     } 
     if (monkeySaturation <= rocketupgrade.cost & rocketcard.style.background != "rgb(66, 245, 66)") {
@@ -267,25 +283,4 @@ function createrocketCard(rocketupgrade) {
   rocketcard.appendChild(rocketheader);
   rocketcard.appendChild(rocketcost);
   return rocketcard;
-}
-
-/* Message visar hur vi kan skapa ett html element och ta bort det.
- * appendChild används för att lägga till och removeChild för att ta bort.
- * Detta görs med en timer.
- * Läs mer: 
- * https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
- * https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
- */
-function message(text, type) {
-  const p = document.createElement('p');
-  p.classList.add(type);
-  p.textContent = text;
-  msgbox.appendChild(p);
-  setTimeout(() => {
-    p.parentNode.removeChild(p);
-  }, 2000);
-
-
-
-
 }
