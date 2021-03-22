@@ -1,15 +1,19 @@
 const clickerButton = document.querySelector('#click');
 const rocketButton = document.querySelector('#rocketclick');
+const rocketUpgradeButton = document.querySelector('#rocketupgradeclick')
 const moneyTracker = document.querySelector('#money');
 const mpsTracker = document.querySelector('#mps');
 const bpcTracker = document.querySelector('#bpc');
 const monkeyTracker = document.querySelector('#monkey');
+const upgradeButton = document.querySelector('#upgradebuttonsymbol');
 const upgradeList = document.querySelector('#upgradelist')
 const rocketupgradeList = document.querySelector('#rocketupgradelist');
 const msgbox = document.querySelector('#msgbox')
-const rocketelement = document.querySelector('#rocket')
+const rocketelement = document.querySelector('#rocket');
+const rocketupgradelistelement = document.getElementById('rocketupgradeelement');
+const moneyupgradelistelement = document.getElementById('moneyupgradeelement');
 
-
+let showmoneyupgrade = true;
 let money = 0;
 let moneyPerClick = 1;
 let moneyPerSecond = 0;
@@ -19,16 +23,26 @@ let rocketammount = 0;
 let rocket = false;
 let rocketanimationspeed = 1;
 
-/* Med ett valt element, som knappen i detta fall så kan vi skapa listeners
- * med addEventListener så kan vi lyssna på ett specifikt event på ett html-element
- * som ett klick.
- * Detta kommer att driva klickerknappen i spelet.
- * Efter 'click' som är händelsen vi lyssnar på så anges en callback som kommer
- * att köras vi varje klick. I det här fallet så använder vi en anonym funktion.
- * Koden som körs innuti funktionen är att vi lägger till moneyPerClick till 
- * money.
- * Läs mer: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
- */
+
+
+
+rocketUpgradeButton.addEventListener('click', () => {
+  if (showmoneyupgrade) {
+    upgradeButton.textContent = '🍌⏫'; 
+    showmoneyupgrade = false;
+    rocketupgradelistelement.style.display = "none";
+    moneyupgradelistelement.style.display = "block";
+  } 
+  else {
+    upgradeButton.textContent = '🚀⏫'
+    showmoneyupgrade = true 
+    moneyupgradelistelement.style.display = "none";
+    rocketupgradelistelement.style.display = "block";
+  }
+  
+}, false)
+
+
 clickerButton.addEventListener('click', () => {
   money += moneyPerClick;
   // console.log(clicker.score);
@@ -168,6 +182,10 @@ rocketupgrades = [
   }
 ]
 
+function playgame() {
+  window.location.href = "http://www.w3schools.com";
+}
+
 /* createCard är en funktion som tar ett upgrade objekt som parameter och skapar
  * ett html kort för det.
  * För att skapa nya html element så används document.createElement(), elementen
@@ -204,11 +222,16 @@ function createCard(upgrade) {
       upgrade.cost *= 1.5;
       cost.textContent = 'Köp för ' + upgrade.cost + ' Ap-mättnad';
       moneyPerSecond += upgrade.amount;
-      console.log("upgrade complete " + upgrade.name);
-      message('Upgradering lyckades!', 'success');
-      console.log("sucsess");
+      card.style.background = "rgb(66, 245, 66)";
+      setTimeout(() => {
+        card.style.background = "white";
+      }, 100);
+  
     } else {
-      message('Du har inte råd.', 'warning');
+      card.style.background = "rgb(255, 51, 51)";
+      setTimeout(() => {
+        card.style.background = "white";
+      }, 100);
     }
   });
 
@@ -231,9 +254,13 @@ function createrocketCard(rocketupgrade) {
     if (monkeySaturation >= rocketupgrade.cost) {
       rocketanimationspeed = rocketupgrades.speed;
       console.log(rocketanimationspeed);
-      message('Upgradering lyckades!', 'success');
-    } else {
-      message('Du har inte råd.', 'warning');
+      rocketcard.style.background = "rgb(66, 245, 66)";
+    } 
+    if (monkeySaturation <= rocketupgrade.cost & rocketcard.style.background != "rgb(66, 245, 66)") {
+      rocketcard.style.background = "rgb(255, 51, 51)";
+      setTimeout(() => {
+        rocketcard.style.background = "white";
+      }, 100);
     }
   });
 

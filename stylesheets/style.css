@@ -3,7 +3,6 @@
 /* elements */
 body {
   font-family: 'Exo 2', sans-serif; 
-  height: 3000px; 
   -webkit-user-select: none; /* Safari */        
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
@@ -15,13 +14,14 @@ body::after {
   content: "";
   background: url("/img/space.jpg");
   opacity: 0.3;
+
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   position: absolute;
   z-index: -1; 
-  height: 250%;
+
 }
 
 uppermain {
@@ -32,6 +32,7 @@ uppermain {
 
 main {
   display: flex;
+  height: 100%;
 }
 
 mainleft {
@@ -49,13 +50,14 @@ mainright {
 }
 
 listofupgrades {
-  min-width: 1010px;
+  
   max-height: 700px;
   display: flex;
 }
 
 img {
   max-width: 100%;
+  display: block;
 }
 
 footer {
@@ -64,22 +66,32 @@ footer {
 }
 
 knappar {
+  
+ 
   max-height: 260px;
-  width: 260px;
+  width: 400px;
   display: flex;
+  margin-right: auto;
 }
+
 
 /* clicker */
 #click {
   width: 8rem;
   height: 8rem;
-  font-size: 2rem;
+  font-size: 3.5rem;
 }
 
 #rocketclick {
   width: 8rem;
   height: 8rem;
-  font-size: 2rem;
+  font-size: 3.5rem;
+}
+
+#rocketupgradeclick {
+  width: 8rem;
+  height: 8rem;
+  font-size: 2.5rem;
 }
 
 #msgbox {
@@ -92,10 +104,20 @@ knappar {
   padding: .5rem;
 }
 
+#rocketupgradeelement {
+  display: none;
+  
+}
+
+#moneyupgradeelement {
+  display: block;
+  
+}
 
 .rocket {
-  position: absolute;
-  bottom: 0px;
+  margin: auto;
+  height: 20%;
+  
 }
 
 .list {
@@ -133,24 +155,49 @@ knappar {
   animation: rocketlaunch 1s 1 alternate;
 }
 
+.gamebutton {
+  display: block;
+  font-family: 'Exo 2', sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  background-color: rgb(255, 251, 0);
+  color: black;
+  width: 200px;
+  height: 60px;
+  margin: auto;
+  padding-top: 20px;
+  text-decoration: none;
+  border: 2px solid black;
+}
+
+.gamebutton:hover {
+  background-color: rgb(255, 245, 106);
+}
+
+.bigape {
+  max-width: 50%;
+  margin: auto;
+  
+}
+
+.bigapewrap {
+  margin-top: -31px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.123);
+}
+
 /* helpers */
 .h-100 {
   height: 100%;
 }
 
 .w-100 {
-  width: 100%;
-  min-width: 440px;
+  font-size: 1rem;
+  margin-left: 2%;
+  margin-right: 20px;
   min-height: 110px;
 }
 
-.d-flex {
-  display: flex;
-}
-
-.flex-column {
-  flex-direction: column;
-}
 
 .justify-center {
   justify-content: center;
@@ -182,15 +229,20 @@ knappar {
 }
 
 .column {
-  display: flex;
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
   padding-top: 2rem;
   max-width: 35vw;
+  border-right: 2px solid black;
 }
 
 .raketknapp {
+  height: 130px;
+  display: flex;
+}
+
+.raketupgradeknapp {
   height: 130px;
   display: flex;
 }
@@ -199,6 +251,8 @@ knappar {
   display: flex;
   height: 130px;
 }
+
+
 
 @media (min-width: 576px) {
   .container {

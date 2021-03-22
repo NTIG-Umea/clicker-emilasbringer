@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sv" class="h-100">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <title>Intergalactic ape</title>
+  <link rel="icon" href="img/1f435.png">
+</head>
+<body class="h-100">
+  <body::after></body::after>
+    
+  <main>
+  
+    <div class='containerrow'>
+           
+    </div>
+    <div class="column">
+      <div class="w-100">
+        <h1>Mängd Bananer: </h1><h1><span id="money"></span> 🍌Bananer</h1>
+      </div>
+      <div class="w-100">
+        <h1>Bananer per sekund: </h1><h1><span id="mps"></span> 🍌BPS</h1>
+      </div>
+      <div class="w-100">
+        <h1>Banan per click: </h1><h1><span id="bpc"></span> 🍌BPC</h1>
+      </div>
+      <div class="w-100">
+        <h1>Apans Mättnad: </h1><h1><span id="monkey"></span> 🦍Mättnad</h1>
+      </div>
+  
+    </div>
+    <div class="column">
+      <div class="bigapewrap">
+      <img src="img/newmonke640x834.jpg" alt="Källa: https://xkcd.com/386/" width="400px" class="bigape">
+    </div>
+    <div class="rocket" id="rocket"><img src="img/rocket.png" width="100px"></div>
+    </div>
+
+    <div class="column">
+      <knappar>
+        <div class="bananknapp">
+          <div>
+            <button id="click">🍌</button>
+          </div>
+        </div>
+        <div class="raketknapp">
+          <div>
+            <button id="rocketclick">🚀</button>
+          </div>
+        </div>
+        <div class="raketupgradeknapp">
+          <div>
+            <button id="rocketupgradeclick"><span id="upgradebuttonsymbol">🚀⏫</span></button>
+          </div>
+        </div>
+      </knappar>
+    
+      <listofupgrades>
+        <div class="list" id="moneyupgradeelement">
+          <h1>Upgraderingar</h1>
+          <div id="upgradelist"></div>
+        </div>
+        <div class="list" id="rocketupgradeelement">
+          <h1>Raketupgraderingar</h1>
+           <div id="rocketupgradelist"></div>
+         </div>
+        </listofupgrades>  
+    </div>
+  
+</main>
+  <script src="javascripts/clicker.js"></script>
+</body>
+</html>
