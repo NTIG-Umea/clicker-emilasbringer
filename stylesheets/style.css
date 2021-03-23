@@ -52,9 +52,7 @@ mainright {
 }
 
 listofupgrades {
-  
-  max-height: 700px;
-  display: flex;
+  display: block;
 }
 
 img {
@@ -73,7 +71,8 @@ knappar {
   max-height: 260px;
   width: 100%;
   display: flex;
-  margin-right: auto;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 
@@ -81,19 +80,19 @@ knappar {
 #click {
   width: 8rem;
   height: 8rem;
-  font-size: 5vw;
+  font-size: 3rem;
 }
 
 #rocketclick {
   width: 8rem;
   height: 8rem;
-  font-size: 5vw;
+  font-size: 3rem;
 }
 
 #rocketupgradeclick {
   width: 8rem;
   height: 8rem;
-  font-size: 2vw;
+  font-size: 2.5rem;
 }
 
 #msgbox {
@@ -118,7 +117,7 @@ knappar {
 
 #upgradelist {
   overflow: auto;
-  max-height: 432px;
+
 }
 
 #upgradelist::-webkit-scrollbar {
@@ -132,7 +131,7 @@ knappar {
 }
 
 .list {
- max-width: 500px;
+ margin-left: 5px;
  margin-right: 5px;
 }
 .warning {
