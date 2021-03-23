@@ -12,6 +12,7 @@ const msgbox = document.querySelector('#msgbox')
 const rocketelement = document.querySelector('#rocket');
 const rocketupgradelistelement = document.getElementById('rocketupgradeelement');
 const moneyupgradelistelement = document.getElementById('moneyupgradeelement');
+const bigfont = document.getElementById('#moneycounter');
 
 let showmoneyupgrade = true;
 let money = 0;
@@ -91,10 +92,12 @@ function step(timestamp) {
 
   if (money >= 1000000) {
     moneyTracker.textContent = ((money/1000000).toPrecision(4)) + " Miljoner";
+   
   }
 
   if (monkeySaturation >= 1000000) {
     monkeyTracker.textContent = ((monkeySaturation/1000000).toPrecision(4)) + " Miljoner";
+    
   }
 
 
@@ -167,25 +170,29 @@ rocketupgrades = [
     name: 'Mentosraket',
     cost: 100,
     speed: 8,
-    auto: false
+    auto: false,
+    img: 'coke.png'
   },
   {
     name: '"Big boy" fyrverkeriraket',
     cost: 10000,
     speed: 5,
-    auto: false
+    auto: false,
+    img: 'firework.png'  
   },
   {
     name: 'Falcon 9',
     cost: 100000,
     speed: 1,
-    auto: true
+    auto: true,
+    img: 'f9.png'
   },
   {
     name: 'Starship',
     cost: 1000000,
     speed: 0.1,
-    auto: true
+    auto: true,
+    img: 'starship.png'
   }
 ]
 
@@ -271,6 +278,8 @@ function createrocketCard(rocketupgrade) {
       console.log("The rocket is flying at " + rocketanimationspeed + " seconds per cycle");
       rocketelement.style.animationDuration = rocketanimationspeed + 's';
       rocketcard.style.background = "rgb(66, 245, 66)";
+      rocketelement.src = "img/" + rocketupgrade.img;
+
     } 
     if (monkeySaturation <= rocketupgrade.cost & rocketcard.style.background != "rgb(66, 245, 66)") {
       rocketcard.style.background = "rgb(255, 51, 51)";

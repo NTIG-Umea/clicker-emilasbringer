@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="stylesheets/style.css">
   <title>Intergalactic ape</title>
-  <link rel="icon" href="img/1f435.png">
+  <link rel="icon" href="img/apeicon.png">
 </head>
 <body class="h-100">
   <body::after></body::after>
@@ -17,8 +17,10 @@
            
     </div>
     <div class="column">
-      <div class="w-100">
-        <h1>Mängd Bananer: </h1><h1><span id="money"></span> 🍌Bananer</h1>
+      <div class="w-100 maincounter">
+        <div class="bigfont" id="moneycounter">
+          <h1 class="smallmargin"><span id="money"></span><h1 class="smallmargin"> 🍌</h1></h1>
+        </div>
       </div>
       <div class="w-100">
         <h1>Bananer per sekund: </h1><h1><span id="mps"></span> 🍌BPS</h1>
@@ -31,12 +33,12 @@
       </div>
   
     </div>
-    <div class="column">
+    <div class="column borderleftright">
       <div class="bigapewrap">
-      <img src="img/newmonke640x834.jpg" alt="Källa: https://xkcd.com/386/"  class="bigape">
+      <img src="img/ape.jpg" alt="Källa: https://xkcd.com/386/"  class="bigape">
     </div>
    
-      <img src="img/rocket.png" class="rocketimg" id="rocket">
+      <img src="img/box.png" class="rocketimg" id="rocket">
   
     </div>
 
@@ -61,11 +63,11 @@
     
       <listofupgrades>
         <div class="list" id="moneyupgradeelement">
-          <h1>Upgraderingar</h1>
+          <h1 class="upgradetitle">Upgraderingar 🍌⏫</h1>
           <div id="upgradelist"></div>
         </div>
         <div class="list" id="rocketupgradeelement">
-          <h1>Raketupgraderingar</h1>
+          <h1 class="upgradetitle">Raketupgraderingar 🚀⏫</h1>
            <div id="rocketupgradelist"></div>
          </div>
         </listofupgrades>  
