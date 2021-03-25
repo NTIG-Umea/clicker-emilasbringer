@@ -25,6 +25,12 @@ let rocket = false;
 let rocketanimationspeed = 12.5;
 let autofly = false;
 
+setInterval(() => {
+  console.log("interval is executed");
+  if (autofly == true) {
+    rocketclickbutton();  
+  }
+}, 100);
 
 rocketelement.style.animationDuration = "12.5s";
 
@@ -56,8 +62,12 @@ clickerButton.addEventListener('click', () => {
 
 rocketButton.addEventListener('click', () => {
   console.log("rocketb clicked")
+  rocketclickbutton();
+}, false)
+
+
+function rocketclickbutton (){
   if (rocket == false) {
-    console.log("rocketaway!")
     rocket = true;
     rocketammount = money;
     money = 0;
@@ -65,15 +75,13 @@ rocketButton.addEventListener('click', () => {
     rocketelement.classList.remove('rocketlaunchanimation'); // reset animation
     void rocketelement.offsetWidth; // trigger reflow
     rocketelement.classList.add('rocketlaunchanimation'); // start animation  
-    console.log("playingrocketanimations")
     setTimeout(() => {
       rocket = false;
     monkeySaturation += rocketammount;
     }, rocketanimationspeed * 1000);
     
   } 
-}, false)
-
+}
 
 /* För att driva klicker spelet så kommer vi att använda oss av en metod som heter
  * requestAnimationFrame.
@@ -279,6 +287,7 @@ function createrocketCard(rocketupgrade) {
       rocketelement.style.animationDuration = rocketanimationspeed + 's';
       rocketcard.style.background = "rgb(66, 245, 66)";
       rocketelement.src = "img/" + rocketupgrade.img;
+      autofly = rocketupgrade.auto;
 
     } 
     if (monkeySaturation <= rocketupgrade.cost & rocketcard.style.background != "rgb(66, 245, 66)") {
