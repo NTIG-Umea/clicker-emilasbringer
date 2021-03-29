@@ -109,8 +109,8 @@ function step(timestamp) {
   }
 
 
-  if (timestamp >= last + 1000) {
-    money += moneyPerSecond;
+  if (timestamp >= last + 1000/moneyPerSecond) {
+    money += moneyPerSecond/moneyPerSecond;
     last = timestamp;
   }
 
