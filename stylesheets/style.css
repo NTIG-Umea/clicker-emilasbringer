@@ -343,6 +343,7 @@ knappar {
   align-items: center;
   font-size: 2rem;
   border: black 2px solid;
+  animation: blinkborder 1s infinite;
 }
 
 
@@ -401,4 +402,10 @@ knappar {
 @keyframes rocketlaunch { 
   from   {left: 47%; top: 74.5%;}
   to {left: 50%; top: 30%; width: 1%; }
+}
+
+@keyframes blinkborder {
+  0%    {border: rgb(251, 255, 7) 4px solid;}
+  50%   {border: rgb(0, 255, 225) 4px solid;}
+  100%  {border: rgb(251, 255, 7) 4px solid;}
 }
