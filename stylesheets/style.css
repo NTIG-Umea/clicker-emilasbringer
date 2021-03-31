@@ -29,6 +29,10 @@ h1 {
   text-align: center;
 }
 
+p {
+  width: 100%;
+}
+
 uppermain {
     width: 100%;
     min-height: 150px;
@@ -215,8 +219,7 @@ knappar {
 
 .w-100 {
   font-size: 1rem;
-  margin-left: 2%;
-  margin-right: 20px;
+  margin: 5px 10px;
   min-height: 110px;
   color: whitesmoke;
   max-height: 25%;
@@ -239,11 +242,12 @@ knappar {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: auto;
+  margin: 10px auto;
   width: 100%;
   min-width: 615px;
   max-width: 750px;
-  
+  background: rgba(248, 248, 255, 0.404);
+  border-radius: 20px;
 }
 
 .containerrow {
@@ -252,8 +256,8 @@ knappar {
 }
 
 .borderleftright {
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  border-left: 5px solid rgba(24, 255, 36, 0.466);
+  border-right: 5px solid rgba(24, 255, 36, 0.466);
 }
 
 .yellowborder {
@@ -367,6 +371,12 @@ knappar {
   .w-100only {
     font-size: 3vw;
   }
+  .w-100{
+    margin: 0px;
+  }
+  .column {
+    padding: 0px;
+  }
 }
 
 @media (min-width: 750px) {
@@ -376,11 +386,17 @@ knappar {
   .w-100only {
     font-size: 2.5vw;
   }
+  .column {
+    padding-top: 3vw;
+  }
 }
 
 @media (min-width: 850px) {
   .w-100 {
     font-size: 1rem;
+  }
+  .column {
+    padding-top: 2rem;
   }
 }
 
