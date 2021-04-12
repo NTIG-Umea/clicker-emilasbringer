@@ -24,6 +24,7 @@ let rocketammount = 0;
 let rocket = false;
 let rocketanimationspeed = 12.5;
 let autofly = false;
+let marsmode = false;
 
 setInterval(() => {
   console.log("interval is executed");
@@ -40,16 +41,12 @@ rocketUpgradeButton.addEventListener('click', () => {
     showmoneyupgrade = true;
     rocketupgradelistelement.style.display = "none";
     moneyupgradelistelement.style.display = "block";
-    
-    
   } 
   else {
     upgradeButton.textContent = '🚀⏫'
     showmoneyupgrade = false 
     moneyupgradelistelement.style.display = "none";
-    rocketupgradelistelement.style.display = "block";
-    
-    
+    rocketupgradelistelement.style.display = "block";  
   }
   
 }, false)
@@ -58,6 +55,11 @@ rocketUpgradeButton.addEventListener('click', () => {
 clickerButton.addEventListener('click', () => {
   money += moneyPerClick;
   // console.log(clicker.score);
+  clickerButton.style.background = "yellow";
+  setTimeout(() => {
+  clickerButton.style.background = "white";
+  }, 100);
+
 }, false);
 
 rocketButton.addEventListener('click', () => {
@@ -113,7 +115,11 @@ function step(timestamp) {
     money += moneyPerSecond/moneyPerSecond;
     last = timestamp;
   }
-
+  
+  if (marsmode == true) {
+    
+    document.getElementById("backgroundimg").style.background = 'url("../img/mars.jpg")'
+  }
   window.requestAnimationFrame(step);
 }
 
@@ -136,6 +142,7 @@ window.addEventListener('load', (event) => {
     rocketupgrades.forEach(rocketupgrade => {
       rocketupgradeList.appendChild(createrocketCard(rocketupgrade));
     });
+
     window.requestAnimationFrame(step);
 });
 
@@ -144,32 +151,38 @@ upgrades = [
   {
     name: 'Sydamerikansk Bananbonde',
     cost: 10,
-    amount: 1
+    amount: 1,
+    marsenable: false
   },
   {
     name: 'Bananplantation',
     cost: 1000,
-    amount: 150
+    amount: 2500,
+    marsenable: false
   },
   {
     name: 'Bananfabrik',
     cost: 20000,
-    amount: 3000
+    amount: 10000,
+    marsenable: false
   },
   {
     name: 'Bananrepublik',
     cost: 500000,
-    amount: 40000
+    amount: 150000,
+    marsenable: false
   },
   {
     name: 'Bananjorden',
     cost: 10000000,
-    amount: 300000
+    amount: 3000000,
+    marsenable: false
   },
   {
     name: 'Underjordisk Vätekatalysator - Terraformering av mars',
     cost: 1000000000,
-    amount: 0
+    amount: 0,
+    marsenable: true
   }
 ]
 
@@ -248,6 +261,10 @@ function createCard(upgrade) {
       cost.textContent = 'Köp för ' + Math.round(upgrade.cost) + ' Ap-mättnad';
       if (upgrade.cost > 1000000) {
         cost.textContent = 'Köp för ' + Math.round(upgrade.cost/1000000) + " miljoner" + ' Ap-mättnad';
+      }
+      if (upgrade.marsenable) {
+        marsmode = true;
+        console.log("marsmode " + marsmode)
       }
       moneyPerSecond += upgrade.amount;
       card.style.background = "rgb(66, 245, 66)";
