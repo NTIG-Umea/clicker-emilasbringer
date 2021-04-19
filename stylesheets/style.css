@@ -9,20 +9,7 @@ body {
   user-select: none; /* Standard */
   margin: 0px;
   overflow: hidden;
-}
-
-body::after {
-  content: "";
-  background: url("../img/space.jpg");
-  opacity: 0.8;
-
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1; 
-
+  background: url("../img/space.png");
 }
 
 .background-tint {
@@ -251,7 +238,7 @@ knappar {
   width: 100%;
   min-width: 615px;
   max-width: 750px;
-  background: rgba(248, 248, 255, 0.404);
+  background: rgba(248, 248, 255, 0.5);
   border-radius: 20px;
 }
 
@@ -359,7 +346,7 @@ knappar {
 
 @media (min-width: 0px) {
   #click {
-    font-size: 4vw;
+    font-size: 2vw;
   }
   #rocketclick {
     font-size: 4vw;
@@ -416,7 +403,7 @@ knappar {
     min-width: 1000px;
   }
   #click {
-    font-size: 3rem;
+    font-size: 1.3rem;
   }
   #rocketclick {
     font-size: 3rem;

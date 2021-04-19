@@ -109,6 +109,10 @@ function step(timestamp) {
     monkeyTracker.textContent = ((monkeySaturation/1000000).toPrecision(4)) + " Miljoner";
     
   }
+  if (moneyPerSecond >= 1000000) {
+    monkeyTracker.textContent = ((monkeySaturation/1000000).toPrecision(4)) + " Miljoner";
+    
+  }
 
 
   if (timestamp >= last + 1000/moneyPerSecond) {
@@ -118,7 +122,7 @@ function step(timestamp) {
   
   if (marsmode == true) {
     
-    document.getElementById("backgroundimg").style.background = 'url("../img/mars.jpg")'
+    document.body.style.background = 'url("../img/mars.jpg")'
   }
   window.requestAnimationFrame(step);
 }
@@ -152,38 +156,99 @@ upgrades = [
     name: 'Sydamerikansk Bananbonde',
     cost: 10,
     amount: 1,
-    marsenable: false
+    marsenable: false,
+    martian: false,
+    freemode: false
   },
   {
     name: 'Bananplantation',
     cost: 1000,
     amount: 2500,
-    marsenable: false
+    marsenable: false,
+    martian: false,
+    freemode: false
   },
   {
     name: 'Bananfabrik',
     cost: 20000,
     amount: 10000,
-    marsenable: false
+    marsenable: false,
+    martian: false,
+    freemode: false
   },
   {
     name: 'Bananrepublik',
     cost: 500000,
     amount: 150000,
-    marsenable: false
+    marsenable: false,
+    martian: false,
+    freemode: false
   },
   {
     name: 'Bananjorden',
     cost: 10000000,
-    amount: 3000000,
-    marsenable: false
+    amount: 10000000,
+    marsenable: false,
+    martian: false,
+    freemode: false
   },
   {
-    name: 'Underjordisk Vätekatalysator - Terraformering av mars',
+    name: 'Underjordisk Vätekatalysator - 🌏Terraformering av mars🌏',
     cost: 1000000000,
     amount: 0,
-    marsenable: true
-  }
+    marsenable: true,
+    martian: false,
+    freemode: false
+  },
+  {
+    name: 'Braziljansk Bananrobot',
+    cost: 1000000000000,
+    amount: 5000000,
+    marsenable: false,
+    martian: true,
+    freemode: false
+  },
+  {
+    name: 'Avancerad GMO-Mega-Bananplantantion',
+    cost: 50000000000000,
+    amount: 1696969696969,
+    marsenable: false,
+    martian: true,
+    freemode: false
+  },
+  {
+    name: 'Solljus to Banan Artificiell Intellegens',
+    cost: 300000000000000,
+    amount: 990000000000000,
+    marsenable: false,
+    martian: true,
+    freemode: false
+  },
+  {
+    name: 'Ekvatorialt Bananbälte',
+    cost: 1000000000000000,
+    amount: 100000000000000000000000,
+    marsenable: false,
+    martian: true,
+    freemode: false
+  },
+  {
+    name: 'Terrabananaforming av mars',
+    cost: 6900000000000000,
+    amount: 100000000000000000000000000000000000,
+    marsenable: false,
+    martian: true,
+    freemode: false
+  },
+  {
+    name: 'Megaförgiftad 100 triljoner ton explosiv banan - ☠️APA DÖR☠️',
+    cost: 9999999999999999999999,
+    amount: 0,
+    marsenable: false,
+    martian: true,
+    freemode: true
+  },
+  
 ]
 
 rocketupgrades = [
@@ -221,35 +286,32 @@ function playgame() {
   window.location.href = "http://www.w3schools.com";
 }
 
-/* createCard är en funktion som tar ett upgrade objekt som parameter och skapar
- * ett html kort för det.
- * För att skapa nya html element så används document.createElement(), elementen
- * sparas i en variabel så att vi kan manipulera dem ytterligare.
- * Vi kan lägga till klasser med classList.add() och text till elementet med
- * textcontent = 'värde'.
- * Sedan skapas en listener för kortet och i den hittar vi logiken för att köpa
- * en uppgradering.
- * Funktionen innehåller en del strängar och konkatenering av dessa, det kan göras
- * med +, variabel + 'text'
- * Sist så fäster vi kortets innehåll i kortet och returnerar elementet.
- * Läs mer:
- * https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
- * https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
- * https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
- * https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
- */
 function createCard(upgrade) {
   const card = document.createElement('div');
   card.classList.add('card');
   const header = document.createElement('p');
   header.classList.add('title');
   const cost = document.createElement('p');
-
+  if (upgrade.amount > 0)
   header.textContent = upgrade.name + ', +' + upgrade.amount + ' BPS.';
+  else
+  header.textContent = upgrade.name;
+  if (upgrade.amount > 1000000) {
+    header.textContent = upgrade.name + ', +' + Math.round(upgrade.amount/1000000) + " miljoner" + ' BPS.';
+  }
   cost.textContent = 'Köp för ' + Math.round(upgrade.cost) + ' Ap-mättnad';
   if (upgrade.cost > 1000000) {
     cost.textContent = 'Köp för ' + Math.round(upgrade.cost/1000000) + " miljoner" + ' Ap-mättnad';
+  }
+  if (upgrade.cost >= 1000000000) {
+    cost.textContent = 'Köp för ' + Math.round(upgrade.cost/1000000000) + " miljarder" + ' Ap-mättnad';
+  }
+  if (upgrade.cost >= 1000000000000) {
+    cost.textContent = 'Köp för ' + Math.round(upgrade.cost/1000000000000) + " biljarder" + ' Ap-mättnad';
+  }
+
+  if (upgrade.martian) {
+    card.style.background = "rgb(196, 44, 6)"
   }
 
   card.addEventListener('click', () => {
@@ -258,24 +320,43 @@ function createCard(upgrade) {
       moneyPerClick++;
       monkeySaturation -= upgrade.cost;
       upgrade.cost *= 1.5;
+      moneyPerSecond += upgrade.amount;
       cost.textContent = 'Köp för ' + Math.round(upgrade.cost) + ' Ap-mättnad';
       if (upgrade.cost > 1000000) {
         cost.textContent = 'Köp för ' + Math.round(upgrade.cost/1000000) + " miljoner" + ' Ap-mättnad';
       }
+      if (upgrade.cost >= 1000000) {
+        cost.textContent = 'Köp för ' + Math.round(upgrade.cost/1000000000) + " miljarder" + ' Ap-mättnad';
+      }
+      if (upgrade.cost >= 1000000000) {
+        cost.textContent = 'Köp för ' + Math.round(upgrade.cost/1000000000000) + " biljarder" + ' Ap-mättnad';
+      }
       if (upgrade.marsenable) {
         marsmode = true;
-        console.log("marsmode " + marsmode)
       }
-      moneyPerSecond += upgrade.amount;
+      if (!upgrade.martian) {
       card.style.background = "rgb(66, 245, 66)";
       setTimeout(() => {
         card.style.background = "white";
       }, 100);
-  
-    } else {
-      card.style.background = "rgb(255, 51, 51)";
+    }
+      if (upgrade.martian) {
+        card.style.background = "rgb(66, 245, 66)";
+      setTimeout(() => {
+        card.style.background = "rgb(196, 44, 6)";
+      }, 100);
+      }
+    } 
+    else if (!upgrade.martian) {
+      card.style.background = "rgb(220, 0, 0)";
       setTimeout(() => {
         card.style.background = "white";
+      }, 100);
+    }
+    else {
+      card.style.background = "rgb(220, 0, 0)";
+      setTimeout(() => {
+        card.style.background = "rgb(196, 44, 6)";
       }, 100);
     }
   });
