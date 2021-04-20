@@ -6,19 +6,10 @@ Syftet med detta arbetsmoment var att skapa ett spel med clicker-tema, vilket ge
 
 <h2>Bakgrund</h2>
 Redovisa arbetets olika delar. Så att läsaren förstår vad du gjort och hur.
-Arbetet 
 
-
-Bakgrund
-Redovisa arbetets olika delar. Så att läsaren förstår vad du gjort och hur.
-
-Använd gärna bilder för att illustrera.
-
-För att lägga till bilder i markdown. Bilderna kan du ladda upp med Git som vanligt, länka dem med url eller filnamnet.
+När vi blev tilldelad uppgiften så skulle vi klona ett Git-repo med en exempel-clicker med syftet att ge oss en javascript-kod som redan fungerar och som vi kan referera tillbaka till under projektets gång. När jag påbörjade mitt projekt så försökte jag först ändra om exempel-clickern så att den passade min design men det blev bara mer problem än det var värt. Istället så tog jag bara bort all html och började om från början. Efter html och det mesta av css var klar så hade jag en bra struktur på sidan som liknade den i min Figma-skiss. Jag lade in mer av knapparna och menyerna i mina kolumner och fick spendera en del tid på att få alla barn-divs att passsa in i huvud-diven och få dem att skala upp och ner på ett mjukt sätt. Då min visuella design var klar så satt jag för det mestadels med javascripten i slutet av arbetsperioden 
 
 ![GitHub Logo](guden.png)
-![NTI Gymnasiet Umeå Logo](https://raw.githubusercontent.com/jensnti/Webbprojekt/master/mallar/nti_logo_white_umea.svg)
-NTI Gymnasiet Umeå Logo
 
 Positiva erfarenheter
 Här beskriver du vad som har gått bra i ditt projekt och analyserar varför. Hur ska du upprepa framgångarna.
