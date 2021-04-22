@@ -30,3 +30,4 @@ Utvecklingsmöjligheterna för mitt projekt kändes inte hindrad av en tidsbegr�
 Javascript-aspektet av denna uppgift har get mig en väldigt bra utgångspunkt från vars jag kan basera framtida uppskattningar om mina förmågor i framtida applikationer som använder sig av javascript. Detta kopplat med den ytterligare bekvämligheten inom CSS som jag har inkasserat från detta projket har gett mig förutsättningarna för att skapa designer som är ännu mer användarvänliga, komplexa och innovativa.
  
 <h2>Validering</h> 
+När slutet på uppgiften drog sig nära så validerade jag min html och css. De var några typos och ett ställe som jag hade satt min bilds bredd i px i min html-kod vilket validatorn klagade på, annars så gick min hemsida igenom utan problem.
