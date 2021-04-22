@@ -18,7 +18,6 @@ I framtida projekt borde jag alltid ha en sketch att utgå ifrån och ha en konk
 
 
 <h2>Negativa erfarenheter</h2>
-Här beskriver du det som du anser har gått mindre bra med ditt projekt och analyserar hur du kan undvika detta i framtida projekt.
 Något som gav upphov till några hinder var animationerna till min clicker. Det var lätt att få dem att se ut som man vill men den svåra delen är att få sin animation att skala bra på olika upplösningar. Jag hade inte planerat så väl hur min animation skulle skala, jag tänkte mest på att få den att fungera och inte så mycket på att den ska vara skalbar. Som jag fick lära mig så går det inte bara att sätta distansen på animation till en % av viewwidth eftersom clickern är för dynamisk för att stödja en så enkel rensponsiv regel. För att undvika detta så krävs det en kreativt planering i förväg på hur animationerna ska skalas eller kraftfullare verktyg som låter animationerna bli manipulerade lättare. T.ex animationer med javascript istället för @keyframes css. 
 
 
