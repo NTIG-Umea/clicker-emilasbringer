@@ -311,7 +311,7 @@ function createCard(upgrade) {
   }
 
   if (upgrade.martian) {
-    card.style.background = "rgb(196, 44, 6)"
+    card.style.background = "rgb(222, 44, 0)"
   }
 
   card.addEventListener('click', () => {
@@ -343,7 +343,7 @@ function createCard(upgrade) {
       if (upgrade.martian) {
         card.style.background = "rgb(66, 245, 66)";
       setTimeout(() => {
-        card.style.background = "rgb(196, 44, 6)";
+        card.style.background = "rgb(222, 44, 0)";
       }, 100);
       }
     } 
@@ -356,7 +356,7 @@ function createCard(upgrade) {
     else {
       card.style.background = "rgb(220, 0, 0)";
       setTimeout(() => {
-        card.style.background = "rgb(196, 44, 6)";
+        card.style.background = "rgb(222, 44, 0)";
       }, 100);
     }
   });
