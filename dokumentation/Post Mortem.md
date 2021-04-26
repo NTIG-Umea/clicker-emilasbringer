@@ -30,9 +30,9 @@ Javascript-aspektet av denna uppgift har get mig en väldigt bra utgångspunkt f
  
 <h2>Validering</h2> 
 När slutet på uppgiften drog sig nära så validerade jag min html och css. De var några typos och ett ställe som jag hade satt min bilds bredd i px i min html-kod vilket validatorn klagade på, annars så gick min hemsida igenom utan problem.
-<p> </p>
+
 HTML:[Validator](shorturl.at/hrAMS)
-<p> </p>
+
 CSS: [Validator](shorturl.at/inB16)
 
 
