@@ -31,9 +31,9 @@ Javascript-aspektet av denna uppgift har get mig en väldigt bra utgångspunkt f
 <h2>Validering</h2> 
 När slutet på uppgiften drog sig nära så validerade jag min html och css. De var några typos och ett ställe som jag hade satt min bilds bredd i px i min html-kod vilket validatorn klagade på, annars så gick min hemsida igenom utan problem.
 
-HTML:[Validator](shorturl.at/hrAMS)
+HTML:[Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fntig-umea.github.io%2Fclicker-emilasbringer%2Fgame.html)
 
-CSS: [Validator](shorturl.at/inB16)
+CSS: [Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fntig-umea.github.io%2Fclicker-emilasbringer%2Fgame.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=sv)
 
 
 
