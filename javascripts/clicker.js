@@ -1,3 +1,4 @@
+const apebutton = document.querySelector('#ape')
 const clickerButton = document.querySelector('#click');
 const rocketButton = document.querySelector('#rocketclick');
 const rocketUpgradeButton = document.querySelector('#rocketupgradeclick')
@@ -60,6 +61,10 @@ clickerButton.addEventListener('click', () => {
   clickerButton.style.background = "white";
   }, 100);
 
+}, false);
+
+apebutton.addEventListener('click', () => {
+  money += moneyPerClick;
 }, false);
 
 rocketButton.addEventListener('click', () => {

@@ -47,6 +47,10 @@ img {
   display: block;
 }
 
+.apepic {
+  width: 400px;
+}
+
 footer {
   margin-top: auto;
   padding: 2rem 0;
