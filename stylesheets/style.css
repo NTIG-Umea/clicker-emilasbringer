@@ -37,7 +37,7 @@ main {
   overflow: hidden;
 }
 
-listofupgrades {
+.listofupgrades {
   display: block;
   height: 79vh;
 }
@@ -56,7 +56,7 @@ footer {
   padding: 2rem 0;
 }
 
-knappar {
+.knappar {
   max-height: 260px;
   display: flex;
   margin-right: 5px;
