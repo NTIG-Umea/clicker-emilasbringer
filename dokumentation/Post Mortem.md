@@ -31,8 +31,8 @@ Javascript-aspektet av denna uppgift har get mig en väldigt bra utgångspunkt f
 <h2>Validering</h2> 
 När slutet på uppgiften drog sig nära så validerade jag min html och css. De var några typos och ett ställe som jag hade satt min bilds bredd i px i min html-kod vilket validatorn klagade på, annars så gick min hemsida igenom utan problem.
 
-HTML: shorturl.at/hrAMS
-CSS:  shorturl.at/inB16
+HTML:<a href="shorturl.at/hrAMS" 123>
+CSS: <a href="shorturl.at/inB16">
 
 <h2>Användartest</h2>
 När jag utförde ett användartest närmare slutet av mitt projekt så försökte min användare att klicka på den stora apan för att öka sin förmögenhet bananer. I respons till detta så valde jag göra det möjligt att tjäna förmögenhet genom att klicka på apan och jag förtydligade också instruktionerna i början av spelets gång. Utöver det så var resten av spelet förståeligt intuitivt så länge man läste instruktionerna och förstod grunderna. 
